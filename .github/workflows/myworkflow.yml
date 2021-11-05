@@ -4,7 +4,7 @@ on:
 
 jobs:
   Sahara:
-    runs-on: windows-2006
+    runs-on: windows-2016
 
     steps:
       - name: docker init
