@@ -1,4 +1,4 @@
-name: Dockross Action Sandbox
+name: Dockcross Action Sandbox
 on:
   workflow_dispatch:
   push:
@@ -50,6 +50,7 @@ jobs:
           path: build/src/main.exe
 
   Execute:
+    needs: Build
     runs-on: windows-latest
 
     steps:
