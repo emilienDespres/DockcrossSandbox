@@ -6,17 +6,12 @@ on:
 jobs:
   Sahara:
     runs-on: ubuntu-latest
-    # defaults:
-    #   run:
-    #     shell: bash
 
     steps:
       - name: checkout code
         uses: actions/checkout@v2
 
-
-      - name: docker init
+      -name: docker build
         run: |
-          docker pull dockcross/windows-shared-x64
-
-        # docker build -f docker/Dockerfile -t dockercross .
+          docker build -f docker/Dockerfile -t dockercross .
+          docker images
