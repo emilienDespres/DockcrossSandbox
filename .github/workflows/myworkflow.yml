@@ -36,5 +36,5 @@ jobs:
 
       - name: Hello world ?
         run: |
-          apt-get install wine
+          apt-get -y install wine
           wine build/src/main.exe
