@@ -8,6 +8,9 @@ jobs:
     runs-on: windows-2016
 
     steps:
+      - name: checkout code
+        uses: actions/checkout@v2
+
       - name: docker init
         run: |
           ls -alh
