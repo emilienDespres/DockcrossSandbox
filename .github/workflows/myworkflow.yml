@@ -4,7 +4,7 @@ on:
   push:
 
 jobs:
-  Sahara:
+  Build:
     runs-on: ubuntu-latest
 
     steps:
@@ -42,3 +42,25 @@ jobs:
           sudo apt-get update
           sudo apt-get -y install wine32
           wine build/src/main.exe
+
+      - name: upload hello artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: hello
+          path: build/src/main.exe
+
+jobs:
+  Execute:
+    runs-on: windows-latest
+
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v2
+
+      - name: get executable artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: hello
+
+      - name: Hello ?
+        run: build\src\main.exe
