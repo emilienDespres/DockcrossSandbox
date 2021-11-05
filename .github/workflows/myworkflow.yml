@@ -38,5 +38,7 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get -y install wine
-          sudo apt-get -y install libwine
+          sudo dpkg --add-architecture i386
+          sudo apt-get update
+          sudo apt-get -y install wine32
           wine build/src/main.exe
