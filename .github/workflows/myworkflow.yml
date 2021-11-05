@@ -21,10 +21,11 @@ jobs:
           docker run --rm dockcross/windows-shared-x86 > ./dockcross
           ls -alh
           chmod +x ./dockcross
-          mv ./dockcross $GITHUB_WORKSPACE/bin/dockcross
+          ls -alh $GITHUB_WORKSPACE
+          ls -alh $GITHUB_WORKSPACE/bin
 
-      - name: run cmake
-        run: |
-          mkdir build
-          cd build
-          dockcross cmake ..
+      # - name: run cmake
+      #   run: |
+      #     mkdir build
+      #     cd build
+      #     dockcross cmake ..
