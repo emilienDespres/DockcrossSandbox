@@ -26,3 +26,14 @@ jobs:
       - name: run cmake
         run: |
           ./dockcross cmake -S . -B build
+          ls -alh build
+
+      - name: run make
+        run: |
+          ./dockross make --directory=build
+          ls -alh build
+          ls -alh build/src
+
+      - name: Hello world ?
+        run: |
+          ./dockcross wine build/src/main
