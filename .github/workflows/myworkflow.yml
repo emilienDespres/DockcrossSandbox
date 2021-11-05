@@ -13,6 +13,7 @@ jobs:
 
       - name: docker pull
         run: |
+          mkdir build
           docker pull dockcross/windows-shared-x86
           docker images
 
@@ -24,6 +25,4 @@ jobs:
 
       - name: run cmake
         run: |
-          mkdir build
-          cd build
-          ./dockcross cmake ..
+          ./dockcross cmake -S . -B build
