@@ -36,4 +36,4 @@ jobs:
 
       - name: Hello world ?
         run: |
-          ./dockcross wine build/src/main
+          ./dockcross wine build/src/main.exe
