@@ -1,6 +1,7 @@
 name: Dockross Action Sandbox
 on:
   workflow_dispatch:
+  push:
 
 jobs:
   Sahara:
@@ -8,4 +9,4 @@ jobs:
 
     steps:
       - name: docker init
-        run: echo "not much too see for now"
+        run: docker build -f docker/Dockerfile -t dockercross.
