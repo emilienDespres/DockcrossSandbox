@@ -36,4 +36,5 @@ jobs:
 
       - name: Hello world ?
         run: |
-          ./dockcross wine build/src/main.exe
+          apt-get install wine
+          wine build/src/main.exe
