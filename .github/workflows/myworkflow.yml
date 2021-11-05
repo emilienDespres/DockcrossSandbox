@@ -5,8 +5,7 @@ on:
 
 jobs:
   Sahara:
-    runs-on: windows-2016
-
+    runs-on: ubuntu-latest
     # defaults:
     #   run:
     #     shell: bash
