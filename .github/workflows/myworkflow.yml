@@ -9,4 +9,4 @@ jobs:
 
     steps:
       - name: docker init
-        run: docker build -f docker/Dockerfile -t dockercross.
+        run: docker build -f docker/Dockerfile -t dockercross .
