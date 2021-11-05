@@ -19,7 +19,7 @@ jobs:
 
       - name: get helper script
         run: |
-          docker run --rm dockcross/windows-shared-x86 > ./dockcross
+          docker run --rm dockcross/windows-shared-x64 > ./dockcross
           ls -alh
           chmod +x ./dockcross
 
@@ -33,30 +33,34 @@ jobs:
           ./dockcross make --directory=build
           ls -alh build
           ls -alh build/src
+          file build/src/main.exe
 
-      - name: upload hello artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: hello
-          path: build/src/main.exe
+      - name: hello ?
+        run: ./dockross build/src/main.exe
+  #     - name: upload hello artifact
+  #       uses: actions/upload-artifact@v2
+  #       with:
+  #         name: hello
+  #         path: build/src/main.exe
 
-  Execute:
-    needs: Build
-    runs-on: windows-2016
+  # Execute:
+  #   needs: Build
+  #   runs-on: windows-2016
 
-    steps:
-      - name: checkout code
-        uses: actions/checkout@v2
+  #   steps:
+  #     - name: checkout code
+  #       uses: actions/checkout@v2
 
-      - name: get executable artifact
-        uses: actions/download-artifact@v2
-        with:
-          name: hello
-          path: build\src
+  #     - name: get executable artifact
+  #       uses: actions/download-artifact@v2
+  #       with:
+  #         name: hello
+  #         path: build\src
 
-      - name: Hello ?
-        run: |
-          dir
-          cd build\src
-          dir
-          start main.exe
+  #     - name: Hello ?
+  #       run: |
+  #         dir
+  #         cd build\src
+  #         dir
+  #         type main.exe
+  #         start main.exe
