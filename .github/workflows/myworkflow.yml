@@ -52,6 +52,7 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: hello
+          path: build\src\main
 
       - name: Hello ?
         run: start build\src\main.exe
