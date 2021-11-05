@@ -18,5 +18,6 @@ jobs:
 
       - name: docker init
         run: |
-          ls -alh
-          docker build -f docker/Dockerfile -t dockercross .
+          dockerpull dockcross/windows-shared-x86
+
+        # docker build -f docker/Dockerfile -t dockercross .
