@@ -1,0 +1,12 @@
+name: Dockross Action Sandbox
+on:
+  workflow_dispatch:
+
+  jobs:
+    Sahara:
+    
+      runs-on: windows-2006
+
+      steps:
+        - name: docker init
+          run: echo "not much too see for now"
