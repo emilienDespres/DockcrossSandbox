@@ -55,4 +55,8 @@ jobs:
           path: build\src\main
 
       - name: Hello ?
-        run: start build\src\main.exe
+        run: |
+          dir
+          cd build\src
+          dir
+          start main.exe
