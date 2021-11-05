@@ -7,9 +7,9 @@ jobs:
   Sahara:
     runs-on: windows-2016
 
-    defaults:
-      run:
-        shell: bash
+    # defaults:
+    #   run:
+    #     shell: bash
 
     steps:
       - name: checkout code
