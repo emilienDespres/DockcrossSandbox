@@ -54,4 +54,4 @@ jobs:
           name: hello
 
       - name: Hello ?
-        run: build\src\main.exe
+        run: start build\src\main.exe
