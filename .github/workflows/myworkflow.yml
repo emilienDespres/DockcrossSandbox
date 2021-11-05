@@ -8,7 +8,8 @@ jobs:
     runs-on: windows-2016
 
     defaults:
-      shell: bash
+      run:
+        shell: bash
 
     steps:
       - name: checkout code
