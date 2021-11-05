@@ -49,7 +49,6 @@ jobs:
           name: hello
           path: build/src/main.exe
 
-jobs:
   Execute:
     runs-on: windows-latest
 
