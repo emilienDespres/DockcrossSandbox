@@ -18,6 +18,6 @@ jobs:
 
       - name: docker init
         run: |
-          docker pull dockcross/windows-shared-x86
+          docker pull dockcross/windows-shared-x64
 
         # docker build -f docker/Dockerfile -t dockercross .
