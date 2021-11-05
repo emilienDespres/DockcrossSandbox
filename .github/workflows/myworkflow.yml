@@ -18,9 +18,9 @@ jobs:
 
       - name: get helper script
         run: |
-          docker run --rm dockcross/windows-shared-x86 > ./dockross
+          docker run --rm dockcross/windows-shared-x86 > ./dockcross
           ls -alh
-          chmod +x ./dockross
+          chmod +x ./dockcross
           mv ./dockcross ~/bin/
 
       - name: run cmake
