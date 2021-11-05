@@ -11,7 +11,7 @@ jobs:
       - name: checkout code
         uses: actions/checkout@v2
 
-      -name: docker build
+      - name: docker build
         run: |
           docker build -f docker/Dockerfile -t dockercross .
           docker images
