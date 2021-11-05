@@ -35,32 +35,30 @@ jobs:
           ls -alh build/src
           file build/src/main.exe
 
-      - name: hello ?
-        run: ./dockross build/src/main.exe
-  #     - name: upload hello artifact
-  #       uses: actions/upload-artifact@v2
-  #       with:
-  #         name: hello
-  #         path: build/src/main.exe
+      - name: upload hello artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: hello
+          path: build/src/main.exe
 
-  # Execute:
-  #   needs: Build
-  #   runs-on: windows-2016
+  Execute:
+    needs: Build
+    runs-on: windows-2016
 
-  #   steps:
-  #     - name: checkout code
-  #       uses: actions/checkout@v2
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v2
 
-  #     - name: get executable artifact
-  #       uses: actions/download-artifact@v2
-  #       with:
-  #         name: hello
-  #         path: build\src
+      - name: get executable artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: hello
+          path: build\src
 
-  #     - name: Hello ?
-  #       run: |
-  #         dir
-  #         cd build\src
-  #         dir
-  #         type main.exe
-  #         start main.exe
+      - name: Hello ?
+        run: |
+          dir
+          cd build\src
+          dir
+          type main.exe
+          start main.exe
