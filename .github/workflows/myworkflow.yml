@@ -14,7 +14,7 @@ jobs:
       - name: docker pull
         run: |
           mkdir build
-          docker pull dockcross/windows-shared-x86
+          docker pull dockcross/windows-shared-x64
           docker images
 
       - name: get helper script
