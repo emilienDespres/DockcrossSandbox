@@ -11,7 +11,19 @@ jobs:
       - name: checkout code
         uses: actions/checkout@v2
 
-      - name: docker build
+      - name: docker pull
         run: |
-          docker build -f docker/Dockerfile -t dockercross .
+          docker pull dockcross/windows-shared-x86
           docker images
+
+      - name: get helper script
+        run: |
+          docker run -rm dockcross/windws-shared-x86
+          ls -alh
+          chmod +x ./dockross
+          mv ./dockcross ~/bin/
+
+      - name: run cmake
+        run: |
+          cd build
+          dockross cmake ..
