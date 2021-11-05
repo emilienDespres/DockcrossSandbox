@@ -30,7 +30,7 @@ jobs:
 
       - name: run make
         run: |
-          ./dockross make --directory=build
+          ./dockcross make --directory=build
           ls -alh build
           ls -alh build/src
 
