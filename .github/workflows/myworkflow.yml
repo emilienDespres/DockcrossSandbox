@@ -34,15 +34,6 @@ jobs:
           ls -alh build
           ls -alh build/src
 
-      - name: Hello world ?
-        run: |
-          sudo apt-get update
-          sudo apt-get -y install wine
-          sudo dpkg --add-architecture i386
-          sudo apt-get update
-          sudo apt-get -y install wine32
-          wine build/src/main.exe
-
       - name: upload hello artifact
         uses: actions/upload-artifact@v2
         with:
