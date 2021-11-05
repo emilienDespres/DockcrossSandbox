@@ -42,7 +42,7 @@ jobs:
 
   Execute:
     needs: Build
-    runs-on: windows-latest
+    runs-on: windows-2016
 
     steps:
       - name: checkout code
