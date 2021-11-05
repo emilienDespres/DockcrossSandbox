@@ -25,5 +25,6 @@ jobs:
 
       - name: run cmake
         run: |
+          mkdir build
           cd build
           dockross cmake ..
