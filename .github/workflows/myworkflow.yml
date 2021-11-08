@@ -25,12 +25,12 @@ jobs:
 
       - name: run cmake
         run: |
-          ./dockcross cmake -S . -B build
+          ./dockcross bash -c "cmake -S . -B build"
           ls -alh build
 
       - name: run make
         run: |
-          ./dockcross make --directory=build
+          ./dockcross bash -c "make --directory=build"
           ls -alh build
           ls -alh build/src
           file build/src/main.exe
