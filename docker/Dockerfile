@@ -1,8 +1,5 @@
-ARG BASE_IMAGE=dockcross/windows-shared-x86
+FROM dockcross/windows-shared-x86
 
-FROM $BASE_IMAGE
+ENV DEFAULT_DOCKCROSS_IMAGE myimage
 
-COPY . .
-
-RUN ls -alh
-RUN ls -alh ..
+RUN "Hello from myimage"

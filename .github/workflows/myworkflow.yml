@@ -14,12 +14,12 @@ jobs:
       - name: docker pull
         run: |
           mkdir build
-          docker pull dockcross/windows-shared-x64
+          docker build -f docker/Dockerfile -t myimage .
           docker images
 
       - name: get helper script
         run: |
-          docker run --rm dockcross/windows-shared-x64 > ./dockcross
+          docker run --rm myimage > ./dockcross
           ls -alh
           chmod +x ./dockcross
 
@@ -59,6 +59,4 @@ jobs:
         run: |
           dir
           cd build\src
-          dir
-          type main.exe
           start main.exe
