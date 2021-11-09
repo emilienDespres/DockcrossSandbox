@@ -14,7 +14,7 @@ jobs:
       - name: docker build
         run: |
           mkdir build
-          docker build -f docker/Dockerfile_Dummy -t dummy .
+          docker build -f docker/Dockerfile_dummy -t dummy .
           docker images
 
       # - name: get helper script
