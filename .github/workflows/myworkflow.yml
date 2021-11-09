@@ -11,29 +11,33 @@ jobs:
       - name: checkout code
         uses: actions/checkout@v2
 
-      - name: docker pull
+      - name: docker build
         run: |
           mkdir build
-          docker build -f docker/Dockerfile -t myimage .
+          docker build -f docker/Dockerfile_Dummy
           docker images
 
-      - name: get helper script
+      # - name: get helper script
+      #   run: |
+      #     docker run --rm myimage > ./dockcross
+      #     ls -alh
+      #     chmod +x ./dockcross
+
+      # - name: run cmake
+      #   run: |
+      #     ./dockcross bash -c "cmake -S . -B build"
+      #     ls -alh build
+
+      # - name: run make
+      #   run: |
+      #     ./dockcross bash -c "make --directory=build"
+      #     ls -alh build
+      #     ls -alh build/src
+      #     file build/src/main.exe
+      - name: fetch main.exe
         run: |
-          docker run --rm myimage > ./dockcross
+          docker run --rm -v $PWD/tmp cp build/src/main.exe tmp
           ls -alh
-          chmod +x ./dockcross
-
-      - name: run cmake
-        run: |
-          ./dockcross bash -c "cmake -S . -B build"
-          ls -alh build
-
-      - name: run make
-        run: |
-          ./dockcross bash -c "make --directory=build"
-          ls -alh build
-          ls -alh build/src
-          file build/src/main.exe
 
       - name: upload hello artifact
         uses: actions/upload-artifact@v2

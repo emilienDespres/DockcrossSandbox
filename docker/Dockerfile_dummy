@@ -1,0 +1,17 @@
+FROM python
+
+COPY . .
+
+RUN echo "hello from dummy"
+
+RUN docker build -f docker/Dockerfile -t myimage .
+
+RUN docker run --rm myimage > ./dockcross
+RUN chmod +x ./dockcross
+
+RUN ./dockcross bash -c "cmake -S . -B build"
+RUN echo "cmake'd"
+
+RUN ./dockcross bash -c "make --directory=build"
+
+RUN echo "make'd"
