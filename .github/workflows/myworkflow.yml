@@ -13,8 +13,6 @@ jobs:
 
       - name: compile for linux
         run: |
-          python3 -m venv myvenv
-          source myvenv/bin/activate
           pip install .
 
       # - name: docker build
