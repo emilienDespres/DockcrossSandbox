@@ -1,4 +1,4 @@
-FROM dockcross/windows-armv64
+FROM dockcross/windows-arm64
 
 ENV DEFAULT_DOCKCROSS_IMAGE myimage
 
