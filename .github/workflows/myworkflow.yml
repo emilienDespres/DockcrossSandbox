@@ -15,22 +15,20 @@ jobs:
         run: |
           pip install .
 
-      # - name: docker build
-      #   run: |
-      #     mkdir build
-      #     docker build -f docker/Dockerfile_dummy -t dummy .
-      #     docker images
+      - name: test linux
+        run: |
+          python3 test.py
 
-      # - name: get helper script
-      #   run: |
-      #     docker run --rm myimage > ./dockcross
-      #     ls -alh
-      #     chmod +x ./dockcross
+      - name: pull & setup dockcross
+        run: |
+          docker pull dockcross/windows-shared-x86
+          docker run --rm docker run --rm myimage > ./dockcross
+          chmod +x ./dockcross
 
-      # - name: fetch main.exe
-      #   run: |
-      #     docker run --rm -v $PWD/tmp cp build/src/main.exe tmp
-      #     ls -alh
+      - name: compile for windows
+        run: |
+          ./dockcross pip install .
+          ls -alh
 
       # - name: upload hello artifact
       #   uses: actions/upload-artifact@v2
