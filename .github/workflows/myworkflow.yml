@@ -36,9 +36,21 @@ jobs:
       #     name: hello
       #     path: build/src/main.exe
 
-  # Execute:
-  #   needs: Build
-  #   runs-on: windows-2016
+  Execute:
+    needs: Build
+    runs-on: windows-2016
+
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v2
+
+      - name: compile
+        run: |
+          pip install .
+
+      - name: test
+        run: |
+          python3 test.py
 
   #   steps:
   #     - name: checkout code
