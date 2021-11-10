@@ -37,7 +37,6 @@ jobs:
       #     path: build/src/main.exe
 
   Execute:
-    needs: Build
     runs-on: windows-2016
 
     steps:
