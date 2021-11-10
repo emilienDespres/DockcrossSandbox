@@ -19,10 +19,10 @@ jobs:
       #   run: |
       #     python3 test.py
 
-      - name: pull & setup dockcross
+      - name: build & setup dockcross
         run: |
-          docker pull dockcross/windows-shared-x86
-          docker run --rm dockcross/windows-shared-x86 > ./dockcross
+          docker build -f docker/Dockerfile -t myimage .
+          docker run --rm myimage > ./dockcross
           chmod +x ./dockcross
 
       - name: compile for windows
