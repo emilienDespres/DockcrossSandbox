@@ -1,4 +1,4 @@
-FROM dockcross/windows-static-x86
+FROM dockcross/windows-shared-x64
 
 ENV DEFAULT_DOCKCROSS_IMAGE myimage
 
