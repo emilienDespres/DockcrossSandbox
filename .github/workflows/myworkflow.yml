@@ -11,11 +11,17 @@ jobs:
       - name: checkout code
         uses: actions/checkout@v2
 
-      - name: docker build
+      - name: compile for linux
         run: |
-          mkdir build
-          docker build -f docker/Dockerfile_dummy -t dummy .
-          docker images
+          python3 -m venv myvenv
+          source myvenv/bin/activate
+          pip install .
+
+      # - name: docker build
+      #   run: |
+      #     mkdir build
+      #     docker build -f docker/Dockerfile_dummy -t dummy .
+      #     docker images
 
       # - name: get helper script
       #   run: |
@@ -23,44 +29,33 @@ jobs:
       #     ls -alh
       #     chmod +x ./dockcross
 
-      # - name: run cmake
+      # - name: fetch main.exe
       #   run: |
-      #     ./dockcross bash -c "cmake -S . -B build"
-      #     ls -alh build
+      #     docker run --rm -v $PWD/tmp cp build/src/main.exe tmp
+      #     ls -alh
 
-      # - name: run make
-      #   run: |
-      #     ./dockcross bash -c "make --directory=build"
-      #     ls -alh build
-      #     ls -alh build/src
-      #     file build/src/main.exe
-      - name: fetch main.exe
-        run: |
-          docker run --rm -v $PWD/tmp cp build/src/main.exe tmp
-          ls -alh
+      # - name: upload hello artifact
+      #   uses: actions/upload-artifact@v2
+      #   with:
+      #     name: hello
+      #     path: build/src/main.exe
 
-      - name: upload hello artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: hello
-          path: build/src/main.exe
+  # Execute:
+  #   needs: Build
+  #   runs-on: windows-2016
 
-  Execute:
-    needs: Build
-    runs-on: windows-2016
+  #   steps:
+  #     - name: checkout code
+  #       uses: actions/checkout@v2
 
-    steps:
-      - name: checkout code
-        uses: actions/checkout@v2
+  #     - name: get executable artifact
+  #       uses: actions/download-artifact@v2
+  #       with:
+  #         name: hello
+  #         path: build\src
 
-      - name: get executable artifact
-        uses: actions/download-artifact@v2
-        with:
-          name: hello
-          path: build\src
-
-      - name: Hello ?
-        run: |
-          dir
-          cd build\src
-          start main.exe
+  #     - name: Hello ?
+  #       run: |
+  #         dir
+  #         cd build\src
+  #         start main.exe
