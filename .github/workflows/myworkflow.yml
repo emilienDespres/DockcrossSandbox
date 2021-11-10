@@ -27,7 +27,7 @@ jobs:
 
       - name: compile for windows
         run: |
-          ./dockcross pip install .
+          ./dockcross python3 -m build --wheel
           ls -alh
 
       # - name: upload hello artifact
