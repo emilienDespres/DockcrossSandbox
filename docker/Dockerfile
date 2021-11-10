@@ -9,3 +9,4 @@ RUN python3 --version
 RUN python3 -m pip install --upgrade pip
 RUN python3 -m pip install build
 RUN sudo apt-get install -y python3-venv
+Run sudo apt-get install -y python-dev
