@@ -22,7 +22,7 @@ jobs:
       - name: pull & setup dockcross
         run: |
           docker pull dockcross/windows-shared-x86
-          docker run --rm docker run --rm myimage > ./dockcross
+          docker run --rm dockcross/windows-shared-x86 > ./dockcross
           chmod +x ./dockcross
 
       - name: compile for windows
