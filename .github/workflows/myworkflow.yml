@@ -11,13 +11,13 @@ jobs:
       - name: checkout code
         uses: actions/checkout@v2
 
-      - name: compile for linux
-        run: |
-          pip install .
+      # - name: compile for linux
+      #   run: |
+      #     pip install .
 
-      - name: test linux
-        run: |
-          python3 test.py
+      # - name: test linux
+      #   run: |
+      #     python3 test.py
 
       - name: pull & setup dockcross
         run: |
