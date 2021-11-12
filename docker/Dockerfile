@@ -1,4 +1,4 @@
-FROM dockcross/windows-shared-x64
+FROM dockcross/manylinux2014-x64
 
 ENV DEFAULT_DOCKCROSS_IMAGE myimage
 
